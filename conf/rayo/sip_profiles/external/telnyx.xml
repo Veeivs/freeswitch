@@ -1,0 +1,9 @@
+<!-- /etc/freeswitch/sip_profiles/external/telnyx.xml -->
+<gateway name="telnyx">
+    <param name="proxy" value="sip.telnyx.com"/>
+    <param name="username" value="asterisksipapi"/>
+    <param name="password" value="asterisksip@123"/>
+    <param name="register" value="true"/>
+    <param name="caller-id-in-from" value="true"/>
+    <param name="extension" value="auto_to_user"/>
+</gateway>
