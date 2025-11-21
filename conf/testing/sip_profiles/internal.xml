@@ -34,13 +34,13 @@
         <!--
         When calls are in no media this will bring them back to media
         when you press the hold button.
-    -->
+        -->
         <!--<param name="media-option" value="resume-media-on-hold"/> -->
 
         <!--
         This will allow a call after an attended transfer go back to
         bypass media after an attended transfer.
-    -->
+        -->
         <!--<param name="media-option" value="bypass-media-after-att-xfer"/>-->
 
         <!-- Can be set to "_undef_" to remove the User-Agent header -->
@@ -61,22 +61,22 @@
 
 
         <!--
-        Sometimes, in extremely rare edge cases, the Sofia SIP stack may stop
-        responding. These options allow you to enable and control a watchdog
-        on the Sofia SIP stack so that if it stops responding for the
-        specified number of milliseconds, it will cause FreeSWITCH to crash
-        immediately. This is useful if you run in an HA environment and
-        need to ensure automated recovery from such a condition. Note that if
-        your server is idle a lot, the watchdog may fire due to not receiving
-        any SIP messages. Thus, if you expect your system to be idle, you
-        should leave the watchdog disabled. It can be toggled on and off
-        through the FreeSWITCH CLI either on an individual profile basis or
-        globally for all profiles. So, if you run in an HA environment with a
-        master and slave, you should use the CLI to make sure the watchdog is
-        only enabled on the master.
-        If such crash occurs, FreeSWITCH will dump core if allowed. The
-        stacktrace will include function watchdog_triggered_abort().
-    -->
+            Sometimes, in extremely rare edge cases, the Sofia SIP stack may stop
+            responding. These options allow you to enable and control a watchdog
+            on the Sofia SIP stack so that if it stops responding for the
+            specified number of milliseconds, it will cause FreeSWITCH to crash
+            immediately. This is useful if you run in an HA environment and
+            need to ensure automated recovery from such a condition. Note that if
+            your server is idle a lot, the watchdog may fire due to not receiving
+            any SIP messages. Thus, if you expect your system to be idle, you
+            should leave the watchdog disabled. It can be toggled on and off
+            through the FreeSWITCH CLI either on an individual profile basis or
+            globally for all profiles. So, if you run in an HA environment with a
+            master and slave, you should use the CLI to make sure the watchdog is
+            only enabled on the master.
+            If such crash occurs, FreeSWITCH will dump core if allowed. The
+            stacktrace will include function watchdog_triggered_abort().
+        -->
         <param name="watchdog-enabled" value="no"/>
         <param name="watchdog-step-timeout" value="30000"/>
         <param name="watchdog-event-timeout" value="30000"/>
@@ -112,9 +112,9 @@
 
         <!--<param name="aggressive-nat-detection" value="true"/>-->
         <!--
-        There are known issues (asserts and segfaults) when 100rel is enabled.
-        It is not recommended to enable 100rel at this time.
-    -->
+            There are known issues (asserts and segfaults) when 100rel is enabled.
+            It is not recommended to enable 100rel at this time.
+        -->
         <!--<param name="enable-100rel" value="true"/>-->
 
         <!-- uncomment if you don't wish to try a next SRV destination on 503 response -->
@@ -125,14 +125,14 @@
         <!--<param name="enable-compact-headers" value="true"/>-->
         <!--
         enable/disable session timers
-    -->
+        -->
         <!--<param name="enable-timer" value="false"/>-->
         <!--<param name="minimum-session-expires" value="120"/>-->
         <param name="apply-inbound-acl" value="domains"/>
         <!--
         This defines your local network, by default we detect your local network
         and create this localnet.auto ACL for this.
-    -->
+        -->
         <param name="local-network-acl" value="localnet.auto"/>
         <!--<param name="apply-register-acl" value="domains"/>-->
         <!--<param name="dtmf-type" value="info"/>-->
@@ -220,15 +220,15 @@
         <param name="tls-ciphers" value="$${sip_tls_ciphers}"/>
 
         <!--
-        Connect timeout for outgoing requests using TLS (in milliseconds).
-        Set the timeout and SIP engine will try again sending an outgoing request
-        and when possible - using an alternative address (DNS failover).
-        Default - 0 (disabled)
-    -->
+            Connect timeout for outgoing requests using TLS (in milliseconds).
+            Set the timeout and SIP engine will try again sending an outgoing request
+            and when possible - using an alternative address (DNS failover).
+            Default - 0 (disabled)
+        -->
         <!-- <param name="tls-orq-connect-timeout" value="3000" /> -->
 
         <!-- turn on auto-flush during bridge (skip timer sleep when the socket already has data)
-         (reduces delay on latent connections default true, must be disabled explicitly)-->
+            (reduces delay on latent connections default true, must be disabled explicitly)-->
         <!--<param name="rtp-autoflush-during-bridge" value="false"/>-->
 
         <!--If you don't want to pass through timestamps from 1 RTP call to another (on a per call basis with rtp_rewrite_timestamps chanvar)-->
@@ -355,27 +355,27 @@
         <!--<param name="disable-register" value="true"/>-->
 
         <!--
-        enable-3pcc can be set to either 'true' or 'proxy', true accepts the call
-        right away, proxy waits until the call has been answered then sends accepts
-    -->
-        <!--<param name="enable-3pcc" value="true"/>-->
+            enable-3pcc can be set to either 'true' or 'proxy', true accepts the call
+            right away, proxy waits until the call has been answered then sends accepts
+        -->
+            <!--<param name="enable-3pcc" value="true"/>-->
 
-        <!-- use at your own risk or if you know what this does.-->
-        <!--<param name="NDLB-force-rport" value="true"/>-->
-        <!--
-        Choose the realm challenge key. Default is auto_to if not set.
+            <!-- use at your own risk or if you know what this does.-->
+            <!--<param name="NDLB-force-rport" value="true"/>-->
+            <!--
+            Choose the realm challenge key. Default is auto_to if not set.
 
-        auto_from  - uses the from field as the value for the sip realm.
-        auto_to    - uses the to field as the value for the sip realm.
-        <anyvalue> - you can input any value to use for the sip realm.
+            auto_from  - uses the from field as the value for the sip realm.
+            auto_to    - uses the to field as the value for the sip realm.
+            <anyvalue> - you can input any value to use for the sip realm.
 
-        If you want URL dialing to work you'll want to set this to auto_from.
+            If you want URL dialing to work you'll want to set this to auto_from.
 
-        If you use any other value besides auto_to or auto_from you'll
-        loose the ability to do multiple domains.
+            If you use any other value besides auto_to or auto_from you'll
+            loose the ability to do multiple domains.
 
-        Note: comment out to restore the behavior before 2008-09-29
-    -->
+            Note: comment out to restore the behavior before 2008-09-29
+        -->
         <param name="challenge-realm" value="auto_from"/>
         <!--<param name="disable-rtp-auto-adjust" value="true"/>-->
         <!-- on inbound calls make the uuid of the session equal to the sip call id of that call -->
@@ -395,7 +395,7 @@
             CISCO_SKIP_MARK_BIT_2833
             SONUS_SEND_INVALID_TIMESTAMP_2833
 
-    -->
+        -->
         <!--<param name="auto-rtp-bugs" data="clear"/>-->
 
         <!-- the following can be used as workaround with bogus SRV/NAPTR records -->
@@ -424,10 +424,11 @@
         <!-- <param name="timer-T2" value="4000" /> -->
 
         <!--
-        Transaction lifetime (in milliseconds).
-        Set the lifetime for completed transactions used by the SIP transaction engine.
-        A completed transaction is kept around for the duration of T4 in order to catch late responses.
-        The T4 is the maximum duration for the messages to stay in the network and the duration of SIP timer K. -->
+            Transaction lifetime (in milliseconds).
+            Set the lifetime for completed transactions used by the SIP transaction engine.
+            A completed transaction is kept around for the duration of T4 in order to catch late responses.
+            The T4 is the maximum duration for the messages to stay in the network and the duration of SIP timer K. 
+        -->
         <!-- <param name="timer-T4" value="4000" /> -->
 
         <!-- Turn on a jitterbuffer for every call -->
@@ -437,7 +438,8 @@
         <!-- By default mod_sofia will ignore the codecs in the sdp for hold/unhold operations
             Set this to true if you want to actually parse the sdp and re-negotiate the codec during hold/unhold.
             It's probably not what you want so stick with the default unless you really need to change this.
-    -->
+        -->
+
         <!--<param name="renegotiate-codec-on-hold" value="true"/>-->
 
     </settings>
