@@ -1,3 +1,23 @@
+<configuration name="xml_cdr.conf" description="XML CDR">
+  <settings>
+    <!-- Post CDR to your API -->
+    <param name="url" value="https://pretty-grand-oriole.ngrok-free.app/freeswitch/cdr"/>
+    <param name="cred" value="user:pass"/>
+
+    <!-- Retry settings -->
+    <param name="retries" value="2"/>
+    <param name="delay" value="120"/>
+
+    <!-- Log CDR errors -->
+    <param name="log-dir" value="/var/log/freeswitch/xml_cdr"/>
+    <param name="err-log-dir" value="/var/log/freeswitch/xml_cdr/errors"/>
+
+    <!-- Enable posting -->
+    <param name="encode" value="true"/>
+  </settings>
+</configuration>
+
+<!-- 
 <configuration name="xml_cdr.conf" description="XML CDR CURL logger">
   <settings>
     <!-- the url to post to if blank web posting is disabled  -->
@@ -39,4 +59,5 @@
     <!-- <param name="ignore-cacert-check" value="true" /> -->
 
   </settings>
-</configuration>
+</configuration> 
+-->

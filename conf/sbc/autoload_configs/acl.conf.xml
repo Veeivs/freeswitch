@@ -16,6 +16,11 @@
     <list name="lan" default="allow">
       <node type="deny" cidr="192.168.42.0/24"/>
       <node type="allow" cidr="192.168.42.42/32"/>
+      <node type="allow" cidr="127.0.0.1/32"/>
+      <node type="allow" cidr="192.168.1.0/24"/>
+      <node type="allow" cidr="10.0.0.0/8"/>
+      <!-- Add your API server IP -->
+      <node type="allow" cidr="$${local_ip_v4}/32"/>
     </list>
 
     <list name="strict" default="deny">

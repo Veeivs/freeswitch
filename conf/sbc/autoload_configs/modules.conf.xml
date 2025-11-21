@@ -17,18 +17,26 @@
     <!-- Event Handlers -->
     <load module="mod_cdr_csv"/>
     <!-- <load module="mod_event_multicast"/> -->
+    
+    <!-- Enable Event Socket -->
     <load module="mod_event_socket"/>
+
+    <!-- Other required modules -->
+    <load module="mod_sofia"/>
+    <load module="mod_conference"/>
+    <load module="mod_voicemail"/>
+    <load module="mod_dptools"/>
+    <load module="mod_commands"/>
 
     <!-- Endpoints -->
     <!-- <load module="mod_iax"/> -->
-    <load module="mod_sofia"/>
+    <!-- mod_sofia already loaded above -->
     <load module="mod_loopback"/>
     <!-- <load module="mod_woomera"/> -->
 
     <!-- Applications -->
     <!--load module="mod_signalwire"/-->
-    <load module="mod_commands"/>
-    <load module="mod_dptools"/>
+    <!-- mod_commands and mod_dptools already loaded above -->
     <load module="mod_expr"/>
     <load module="mod_limit"/>
     <!--<load module="mod_translate"/>-->

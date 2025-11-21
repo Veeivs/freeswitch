@@ -1,3 +1,34 @@
+
+<configuration name="conference.conf" description="Audio Conference">
+  <profiles>
+    <profile name="default">
+      <param name="domain" value="$${domain}"/>
+      <param name="rate" value="16000"/>
+      <param name="interval" value="20"/>
+      <param name="energy-level" value="300"/>
+
+      <!-- Caller controls -->
+      <param name="caller-controls" value="default"/>
+
+      <!-- Recording -->
+      <param name="auto-record" value="$${base_dir}/recordings/${conference_name}_${strftime(%Y-%m-%d-%H-%M-%S)}.wav"/>
+
+      <!-- Max members -->
+      <param name="max-members" value="200"/>
+
+      <!-- Comfort noise -->
+      <param name="comfort-noise" value="true"/>
+
+      <!-- MOH when alone -->
+      <param name="moh-sound" value="$${hold_music}"/>
+      <param name="enter-sound" value="tone_stream://%(200,0,500,600,700)"/>
+      <param name="exit-sound" value="tone_stream://%(500,0,300,200,100,50,25)"/>
+    </profile>
+  </profiles>
+</configuration>
+
+<!-- 
+
 <!-- http://wiki.freeswitch.org/wiki/Mod_conference --> 
 <!-- None of these paths are real if you want any of these options you need to really set them up -->
 <configuration name="conference.conf" description="Audio Conference">
@@ -175,4 +206,5 @@
     </profile>
     -->
   </profiles>
-</configuration>
+</configuration> 
+-->
