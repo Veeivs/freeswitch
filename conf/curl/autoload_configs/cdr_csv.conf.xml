@@ -1,5 +1,28 @@
 <configuration name="cdr_csv.conf" description="CDR CSV Format">
   <settings>
+    <!-- Log directory -->
+    <param name="log-base" value="/var/log/freeswitch/cdr-csv"/>
+
+    <!-- Default template -->
+    <param name="default-template" value="example"/>
+
+    <!-- Rotate -->
+    <param name="rotate-on-hup" value="true"/>
+
+    <!-- Legs -->
+    <param name="legs" value="a"/>
+  </settings>
+
+  <templates>
+    <template name="example">
+        "${caller_id_name}","${caller_id_number}","${destination_number}","${context}","${start_stamp}","${answer_stamp}","${end_stamp}","${duration}","${billsec}","${hangup_cause}","${uuid}","${bleg_uuid}","${accountcode}","${domain_name}"
+    </template>
+  </templates>
+</configuration>
+
+<!-- 
+<configuration name="cdr_csv.conf" description="CDR CSV Format">
+  <settings>
     <!-- 'cdr-csv' will always be appended to log-base -->
     <!--<param name="log-base" value="/var/log"/>-->
     <param name="default-template" value="example"/>
@@ -18,3 +41,4 @@
   </templates>
 </configuration>
 
+-->

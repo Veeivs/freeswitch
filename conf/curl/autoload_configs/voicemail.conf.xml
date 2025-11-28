@@ -33,11 +33,17 @@
       <param name="record-silence-threshold" value="200"/>
       <param name="record-silence-hits" value="2"/>
       <param name="web-template-file" value="web-vm.tpl"/>
+      <!-- Added missing params based on prompt -->
+      <param name="max-retries" value="3"/>
+      <param name="login-keys" value="0"/>
+      <param name="skip-greet-key" value="#"/>
+      <param name="email-from" value="freeswitch@${domain}"/>
+      <param name="notify-email-subject" value="New Voicemail from ${caller_id_name} ${caller_id_number}"/>
       <!-- if you need to change the sample rate of the recorded files e.g. gmail voicemail player -->
       <!--<param name="record-sample-rate" value="11025"/>-->
       <!-- the next two both must be set for this to be enabled
-           the extension is in the format of <dest> [<dialplan>] [<context>]
-       -->
+          the extension is in the format of <dest> [<dialplan>] [<context>]
+      -->
       <param name="operator-extension" value="operator XML default"/>
       <param name="operator-key" value="9"/>
       <param name="vmain-extension" value="vmain XML default"/>
@@ -45,9 +51,9 @@
       <!-- playback created files as soon as they were recorded by default -->
       <!--<param name="auto-playback-recordings" value="true"/>-->
       <email>
-	<param name="template-file" value="voicemail.tpl"/>
-	<param name="notify-template-file" value="notify-voicemail.tpl"/>
-	<!-- this is the format voicemail_time will have -->
+        <param name="template-file" value="voicemail.tpl"/>
+        <param name="notify-template-file" value="notify-voicemail.tpl"/>
+        <!-- this is the format voicemail_time will have -->
         <param name="date-fmt" value="%A, %B %d %Y, %I %M %p"/>
         <param name="email-from" value="${voicemail_account}@${voicemail_domain}"/>
       </email>
@@ -56,8 +62,6 @@
       <!--<param name="record-comment" value="Your Comment"/>-->
       <!--<param name="record-title" value="Your Title"/>-->
       <!--<param name="record-copyright" value="Your Copyright"/>-->
-
-
     </profile>
   </profiles>
 </configuration> 
